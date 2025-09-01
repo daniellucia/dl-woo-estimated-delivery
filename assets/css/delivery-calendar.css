@@ -1,0 +1,77 @@
+/* delivery-calendar.css */
+#dl-ed-calendar-container {
+    margin: 20px auto;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+#dl-ed-calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+#dl-ed-calendar-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#dl-ed-calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#dl-ed-calendar th, #dl-ed-calendar td {
+    width: 14.28%;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#dl-ed-calendar th {
+    background: #f7f7f7;
+    font-weight: 600;
+}
+
+.dl-ed-day {
+    background: #fafafa;
+}
+
+.dl-ed-day:hover {
+    background: #e3f2fd;
+}
+
+.dl-ed-holiday {
+    background: #ffeaea !important;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.dl-ed-today {
+    border: 2px solid #1976d2;
+    background: #e3f2fd;
+}
+
+#dl-ed-save-holidays {
+    display: block;
+    margin: 0 auto;
+    padding: 8px 24px;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#dl-ed-save-holidays:hover {
+    background: #1565c0;
+}
