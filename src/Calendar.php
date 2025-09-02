@@ -42,7 +42,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Calendar')) {
 
                 echo '<h1>' . esc_html__('Estimated Delivery Options', 'dl-woo-estimated-delivery') . '</h1>';
                 echo '<div id="dl-message"></div>';
-                
+
                 echo '<div id="dl-ed-calendar-container">';
                     $prev_month = $month - 1;
                     $prev_year = $year;
@@ -58,7 +58,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Calendar')) {
                     }
                     echo '<div id="dl-ed-calendar-nav">';
                         echo '<a href="?page=dl-woo-estimated-delivery-settings&dl_ed_month=' . $prev_month . '&dl_ed_year=' . $prev_year . '" class="dl-ed-nav-link">&laquo; Anterior</a>';
-                        echo '<span id="dl-ed-calendar-title">' . date_i18n('F Y', $first_day) . '</span>';
+                        echo '<span id="dl-ed-calendar-title">' . ucfirst(date_i18n('F Y', $first_day)) . '</span>';
                         echo '<a href="?page=dl-woo-estimated-delivery-settings&dl_ed_month=' . $next_month . '&dl_ed_year=' . $next_year . '" class="dl-ed-nav-link">Siguiente &raquo;</a>';
                     echo '</div>';
 
