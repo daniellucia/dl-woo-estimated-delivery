@@ -17,8 +17,8 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
         {
             add_submenu_page(
                 'woocommerce',
-                __('Opciones de Entrega Estimada', 'dl-woo-estimated-delivery'),
-                __('Entrega Estimada', 'dl-woo-estimated-delivery'),
+                __('Estimated Delivery Options', 'dl-woo-estimated-delivery'),
+                __('Estimated Delivery', 'dl-woo-estimated-delivery'),
                 'manage_options',
                 'dl-woo-estimated-delivery-settings',
                 [$this, 'render_options_page']
@@ -40,7 +40,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             $start_weekday = date('N', $first_day);
             $holidays = get_option('dl_estimated_delivery_holidays', []);
             $holidays = is_array($holidays) ? $holidays : [];
-            echo '<div class="wrap"><h1>' . esc_html__('Opciones de Entrega Estimada', 'dl-woo-estimated-delivery') . '</h1>';
+            echo '<div class="wrap"><h1>' . esc_html__('Estimated Delivery Options', 'dl-woo-estimated-delivery') . '</h1>';
             echo '<div id="dl-ed-calendar-container">';
             $prev_month = $month - 1;
             $prev_year = $year;
@@ -60,7 +60,17 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             echo '<a href="?page=dl-woo-estimated-delivery-settings&dl_ed_month=' . $next_month . '&dl_ed_year=' . $next_year . '" class="dl-ed-nav-link">Siguiente &raquo;</a>';
             echo '</div>';
             echo '<table id="dl-ed-calendar"><thead><tr>';
-            $weekdays = [__('Lun', 'dl-woo-estimated-delivery'), __('Mar', 'dl-woo-estimated-delivery'), __('Mié', 'dl-woo-estimated-delivery'), __('Jue', 'dl-woo-estimated-delivery'), __('Vie', 'dl-woo-estimated-delivery'), __('Sáb', 'dl-woo-estimated-delivery'), __('Dom', 'dl-woo-estimated-delivery')];
+
+            $weekdays = [
+                __('Mon', 'dl-woo-estimated-delivery'), 
+                __('Tue', 'dl-woo-estimated-delivery'), 
+                __('Wed', 'dl-woo-estimated-delivery'), 
+                __('Thu', 'dl-woo-estimated-delivery'), 
+                __('Fri', 'dl-woo-estimated-delivery'), 
+                __('Sat', 'dl-woo-estimated-delivery'), 
+                __('Sun', 'dl-woo-estimated-delivery')
+            ];
+
             foreach ($weekdays as $wd) echo '<th>' . $wd . '</th>';
             echo '</tr></thead><tbody><tr>';
             for ($i = 1; $i < $start_weekday; $i++) echo '<td></td>';

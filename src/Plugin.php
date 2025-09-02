@@ -67,7 +67,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
 
             echo '<p class="dl-estimated-delivery">';
             printf(
-                esc_html__('Fecha estimada de entrega: entre %1$s y %2$s', 'dl-woo-estimated-delivery'),
+                esc_html__('Estimated delivery date: between %1$s and %2$s', 'dl-woo-estimated-delivery'),
                 esc_html($min_date),
                 esc_html($max_date)
             );
@@ -129,7 +129,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
             $delivery_dates = $this->calculateDeliveryDate();
             wp_localize_script('dl-est-delivery-checkout', 'dl_estimated_delivery', [
                 'estimatedDelivery' => sprintf(
-                    esc_html__('Fecha estimada de entrega: entre %1$s y %2$s', 'dl-woo-estimated-delivery'),
+                    esc_html__('Estimated delivery date: between %1$s and %2$s', 'dl-woo-estimated-delivery'),
                     esc_html($delivery_dates['min']),
                     esc_html($delivery_dates['max'])
                 ),
