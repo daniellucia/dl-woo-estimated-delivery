@@ -8,6 +8,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
     final class DL_Woo_Estimated_Delivery_Config
     {
 
+        /**
+         * Añadimos el menú de administración
+         * @return void
+         * @author Daniel Lucia
+         */
         public function add_admin_menu()
         {
             add_submenu_page(
@@ -20,7 +25,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             );
         }
 
-
+        /**
+         * Renderizamos la página de opciones
+         * @return void
+         * @author Daniel Lucia
+         */
         public function render_options_page()
         {
             $month = isset($_GET['dl_ed_month']) ? intval($_GET['dl_ed_month']) : date('n');
@@ -35,10 +44,16 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             echo '<div id="dl-ed-calendar-container">';
             $prev_month = $month - 1;
             $prev_year = $year;
-            if ($prev_month < 1) { $prev_month = 12; $prev_year--; }
+            if ($prev_month < 1) {
+                $prev_month = 12;
+                $prev_year--;
+            }
             $next_month = $month + 1;
             $next_year = $year;
-            if ($next_month > 12) { $next_month = 1; $next_year++; }
+            if ($next_month > 12) {
+                $next_month = 1;
+                $next_year++;
+            }
             echo '<div id="dl-ed-calendar-nav">';
             echo '<a href="?page=dl-woo-estimated-delivery-settings&dl_ed_month=' . $prev_month . '&dl_ed_year=' . $prev_year . '" class="dl-ed-nav-link">&laquo; Anterior</a>';
             echo '<span id="dl-ed-calendar-title">' . date_i18n('F Y', $first_day) . '</span>';
@@ -65,6 +80,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             echo '</div>';
         }
 
+        /**
+         * Guardamos los días festivos
+         * @return void
+         * @author Daniel Lucia
+         */
         public function saveData()
         {
             if (!current_user_can('manage_options')) wp_send_json_error('No autorizado');
@@ -76,6 +96,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             wp_send_json_success('Guardado');
         }
 
+        /**
+         * Encolamos los scripts necesarios para la configuración
+         * @return void
+         * @author Daniel Lucia
+         */
         public function enqueueScripts()
         {
             if (isset($_GET['page']) && $_GET['page'] === 'dl-woo-estimated-delivery-settings') {

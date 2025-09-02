@@ -7,6 +7,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
     final class DL_Woo_Estimated_Delivery
     {
 
+        /**
+         * Iniciamos el plugin
+         *
+         * @return void
+         */
         public function init()
         {
 
@@ -25,6 +30,12 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
             add_action('woocommerce_single_product_summary', [$this, 'show_estimated_delivery_product'], 21);
         }
 
+        /**
+         * Método principal para obtener la fecha de entrega estimada
+         *
+         * @param int $product_id
+         * @return array
+         */
         private function calculateDeliveryDate(int $product_id = 0)
         {
 
@@ -42,6 +53,12 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
             ];
         }
 
+        /**
+         * Método para mostrar la fecha de entrega estimada
+         * @param int $product_id
+         * @return void
+         * @author Daniel Lucia
+         */
         private function render(int $product_id = 0)
         {
             $delivery_dates = $this->calculateDeliveryDate($product_id);
@@ -57,6 +74,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
             echo '</p>';
         }
 
+        /**
+         * Mostramos la fecha estimada en el producto
+         * @return void
+         * @author Daniel Lucia
+         */
         public function show_estimated_delivery_product()
         {
             global $product;
@@ -67,12 +89,22 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
             }
         }
 
+        /**
+         * Mostramos la fecha estimada en el checkout
+         * @return void
+         * @author Daniel Lucia
+         */
         public function show_estimated_delivery()
         {
 
             $this->render();
         }
 
+        /**
+         * Mostramos la fecha estimada en el carrito
+         * @return void
+         * @author Daniel Lucia
+         */
         public function show_estimated_delivery_cart()
         {
             $this->render();
@@ -80,6 +112,8 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
 
         /**
          * Encolar scripts para checkout con bloques
+         * @return void
+         * @author Daniel Lucia
          */
         public function enqueue_scripts()
         {
