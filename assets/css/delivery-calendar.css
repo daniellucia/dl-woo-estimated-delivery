@@ -75,3 +75,15 @@
 #dl-ed-save-holidays:hover {
     background: #1565c0;
 }
+
+#dl-message {
+    margin: 0 auto 20px auto;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}

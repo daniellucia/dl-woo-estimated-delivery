@@ -20,7 +20,8 @@ jQuery(document).ready(function ($) {
             action: 'dl_ed_save_holidays',
             holidays: holidays
         }, function (resp) {
-            alert(resp.success ? '¡Guardado!' : 'Error: ' + resp.data);
+            $('#dl-message').html(resp.success ? '¡Guardado!' : 'Error: ' + resp.data);
+            $('#dl-message').slideDown().delay(3000).slideUp();
         });
     });
 

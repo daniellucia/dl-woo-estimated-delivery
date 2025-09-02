@@ -39,7 +39,10 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Calendar')) {
             extract($data);
 
             echo '<div class="wrap">';
+
                 echo '<h1>' . esc_html__('Estimated Delivery Options', 'dl-woo-estimated-delivery') . '</h1>';
+                echo '<div id="dl-message"></div>';
+                
                 echo '<div id="dl-ed-calendar-container">';
                     $prev_month = $month - 1;
                     $prev_year = $year;
