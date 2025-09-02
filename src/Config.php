@@ -32,6 +32,8 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
          */
         public function render_options_page()
         {
+            $calendar = new DL_Woo_Estimated_Delivery_Calendar();
+
             $month = isset($_GET['dl_ed_month']) ? intval($_GET['dl_ed_month']) : date('n');
             $year = isset($_GET['dl_ed_year']) ? intval($_GET['dl_ed_year']) : date('Y');
             $today = date('Y-m-d');
@@ -40,6 +42,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             $start_weekday = date('N', $first_day);
             $holidays = get_option('dl_estimated_delivery_holidays', []);
             $holidays = is_array($holidays) ? $holidays : [];
+
             echo '<div class="wrap"><h1>' . esc_html__('Estimated Delivery Options', 'dl-woo-estimated-delivery') . '</h1>';
             echo '<div id="dl-ed-calendar-container">';
             $prev_month = $month - 1;
@@ -61,17 +64,7 @@ if (! class_exists('DL_Woo_Estimated_Delivery_Config')) {
             echo '</div>';
             echo '<table id="dl-ed-calendar"><thead><tr>';
 
-            $weekdays = [
-                __('Mon', 'dl-woo-estimated-delivery'), 
-                __('Tue', 'dl-woo-estimated-delivery'), 
-                __('Wed', 'dl-woo-estimated-delivery'), 
-                __('Thu', 'dl-woo-estimated-delivery'), 
-                __('Fri', 'dl-woo-estimated-delivery'), 
-                __('Sat', 'dl-woo-estimated-delivery'), 
-                __('Sun', 'dl-woo-estimated-delivery')
-            ];
-
-            foreach ($weekdays as $wd) echo '<th>' . $wd . '</th>';
+            foreach ($calendar->get_weekdays() as $wd) echo '<th>' . $wd . '</th>';
             echo '</tr></thead><tbody><tr>';
             for ($i = 1; $i < $start_weekday; $i++) echo '<td></td>';
             for ($day = 1; $day <= $days_in_month; $day++) {
