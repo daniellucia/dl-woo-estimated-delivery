@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Estimated Delivery\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 06:33+0000\n"
+"POT-Creation-Date: 2025-09-02 06:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -33,11 +33,11 @@ msgstr ""
 msgid "Estimated delivery date: between %1$s and %2$s"
 msgstr ""
 
-#: src/Config.php:20 src/Config.php:43
+#: src/Calendar.php:42 src/Config.php:20
 msgid "Estimated Delivery Options"
 msgstr ""
 
-#: src/Config.php:69
+#: src/Calendar.php:20
 msgid "Fri"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "http://daniellucia.es"
 msgstr ""
 
-#: src/Config.php:65
+#: src/Calendar.php:16
 msgid "Mon"
 msgstr ""
 
@@ -58,23 +58,27 @@ msgstr ""
 msgid "Number of days required to prepare the product before shipping."
 msgstr ""
 
-#: src/Config.php:70
+#: src/Calendar.php:21
 msgid "Sat"
 msgstr ""
 
-#: src/Config.php:71
+#: src/Calendar.php:88
+msgid "Save holidays"
+msgstr ""
+
+#: src/Calendar.php:22
 msgid "Sun"
 msgstr ""
 
-#: src/Config.php:68
+#: src/Calendar.php:19
 msgid "Thu"
 msgstr ""
 
-#: src/Config.php:66
+#: src/Calendar.php:17
 msgid "Tue"
 msgstr ""
 
-#: src/Config.php:67
+#: src/Calendar.php:18
 msgid "Wed"
 msgstr ""
 
