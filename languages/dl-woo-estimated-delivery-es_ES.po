@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Estimated Delivery\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-02 06:33+0000\n"
-"PO-Revision-Date: 2025-09-02 06:42+0000\n"
+"PO-Revision-Date: 2025-09-02 14:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
 "Language: es_ES\n"
@@ -27,12 +27,12 @@ msgstr "Días de preparación"
 msgid "Estimated Delivery"
 msgstr "Entrega estimada"
 
-#: src/Plugin.php:70 src/Plugin.php:132
+#: src/Plugin.php:66 src/Plugin.php:127
 #, php-format
-msgid "Estimated delivery date: between %1$s and %2$s"
-msgstr "Fecha de entrega estimada: entre %1$s y %2$s"
+msgid "Estimated delivery date: %s"
+msgstr "Fecha estimada de entrega: %s"
 
-#: src/Calendar.php:42 src/Config.php:20
+#: src/Calendar.php:43 src/Config.php:20
 msgid "Estimated Delivery Options"
 msgstr "Opciones de entrega estimadas"
 
@@ -61,7 +61,7 @@ msgstr "Número de días necesarios para preparar el producto antes del envío."
 msgid "Sat"
 msgstr "Sab"
 
-#: src/Calendar.php:88
+#: src/Calendar.php:91
 msgid "Save holidays"
 msgstr "Guardar festivos"
 
