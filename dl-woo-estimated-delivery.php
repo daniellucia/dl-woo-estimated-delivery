@@ -24,6 +24,7 @@ add_action('plugins_loaded', function () {
     require_once __DIR__ . '/src/Product.php';
     require_once __DIR__ . '/src/Config.php';
     require_once __DIR__ . '/src/Calendar.php';
+    require_once __DIR__ . '/src/Days.php';
 
     load_plugin_textdomain('dl-woo-estimated-delivery', false, dirname(plugin_basename(__FILE__)) . '/languages');
 

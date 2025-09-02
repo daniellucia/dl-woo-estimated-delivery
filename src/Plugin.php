@@ -28,29 +28,27 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
             add_action('woocommerce_proceed_to_checkout', [$this, 'show_estimated_delivery_cart'], 20);
             add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
             add_action('woocommerce_single_product_summary', [$this, 'show_estimated_delivery_product'], 21);
+
+            //Calculo de dias
+            $days = new DL_Woo_Estimated_Delivery_Days();
+            add_action('dl_woo_estimated_delivery_calculate_days', [$days, 'addIfIsToday'], 5, 2);
+            add_action('dl_woo_estimated_delivery_calculate_days', [$days, 'addPreparationDaysFromProduct'], 10, 2);
+            add_action('dl_woo_estimated_delivery_calculate_days', [$days, 'addDaysIfIsSunday'], 15, 2);
+            add_action('dl_woo_estimated_delivery_calculate_days', [$days, 'addDaysIfIsHoliday'], 20, 2);
+
         }
 
         /**
          * Método principal para obtener la fecha de entrega estimada
          *
          * @param int $product_id
-         * @return array
+         * @return string
          */
         private function calculateDeliveryDate(int $product_id = 0)
         {
 
-            $preparation_days = 0;
-            if ($product_id > 0) {
-                $preparation_days = get_post_meta($product_id, '_dl_preparation_days', true);
-            }
-
-            $min_days = 3 + $preparation_days;
-            $max_days = 5 + $preparation_days;
-
-            return [
-                'min' => date_i18n(get_option('date_format'), strtotime("+$min_days days")),
-                'max' => date_i18n(get_option('date_format'), strtotime("+$max_days days")),
-            ];
+            $days = apply_filters('dl_woo_estimated_delivery_calculate_days', 1, $product_id);
+            return date_i18n(get_option('date_format'), strtotime("+{$days} days"));
         }
 
         /**
@@ -61,15 +59,12 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
          */
         private function render(int $product_id = 0)
         {
-            $delivery_dates = $this->calculateDeliveryDate($product_id);
-            $min_date = $delivery_dates['min'];
-            $max_date = $delivery_dates['max'];
+            $delivery_date = $this->calculateDeliveryDate($product_id);
 
             echo '<p class="dl-estimated-delivery">';
             printf(
-                esc_html__('Estimated delivery date: between %1$s and %2$s', 'dl-woo-estimated-delivery'),
-                esc_html($min_date),
-                esc_html($max_date)
+                esc_html__('Estimated delivery date: %s', 'dl-woo-estimated-delivery'),
+                esc_html($delivery_date)
             );
             echo '</p>';
         }
@@ -126,12 +121,11 @@ if (! class_exists('DL_Woo_Estimated_Delivery')) {
                 true
             );
 
-            $delivery_dates = $this->calculateDeliveryDate();
+            $delivery_date = $this->calculateDeliveryDate();
             wp_localize_script('dl-est-delivery-checkout', 'dl_estimated_delivery', [
                 'estimatedDelivery' => sprintf(
-                    esc_html__('Estimated delivery date: between %1$s and %2$s', 'dl-woo-estimated-delivery'),
-                    esc_html($delivery_dates['min']),
-                    esc_html($delivery_dates['max'])
+                    esc_html__('Estimated delivery date: %s', 'dl-woo-estimated-delivery'),
+                    esc_html($delivery_date)
                 ),
             ]);
         }
