@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Plugin Name: WooCommerce Estimated Delivery
+ * Plugin Name: Estimated Delivery for WooCommerce
  * Plugin URI:  http://daniellucia.es
  * Description: Muestra la fecha estimada de entrega en el checkout de WooCommerce.
- * Version:     0.0.1
+ * Version:     0.0.2
  * Author:      Daniel Lucia
  * Author URI:  http://daniellucia.es
  * License:     GPLv2 or later
@@ -15,7 +15,7 @@
 
 defined('ABSPATH') || exit;
 
-define('DL_WOO_ESTIMATED_DELIVERY_VERSION', '0.0.1');
+define('DL_WOO_ESTIMATED_DELIVERY_VERSION', '0.0.2');
 define('DL_WOO_ESTIMATED_DELIVERY_FILE', __FILE__);
 
 add_action('plugins_loaded', function () {

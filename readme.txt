@@ -1,4 +1,4 @@
-=== [DL] Woo Estimated Delivery ===
+=== Estimated Delivery for WooCommerce ===
 Contributors: daniellucia
 Tags: woocommerce, checkout, delivery, fecha entrega
 Requires at least: 6.0
