@@ -26,5 +26,6 @@ add_action('plugins_loaded', function () {
 
     load_plugin_textdomain('dl-woo-estimated-delivery', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
-    (new Plugin())->init();
+    $plugin = new Plugin();
+    $plugin->init();
 });
