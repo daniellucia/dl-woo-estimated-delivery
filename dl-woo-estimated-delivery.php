@@ -10,7 +10,7 @@
  * License:     GPLv2 or later
  * Text Domain: dl-woo-estimated-delivery
  * Domain Path: /languages
- * Requires Plugins: WooCommerce
+ * Requires Plugins: woocommerce
  */
 
 use DL\EstimatedDelivery\Plugin;
