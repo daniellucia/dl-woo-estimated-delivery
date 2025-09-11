@@ -8,6 +8,7 @@
  * Author:      Daniel Lucia
  * Author URI:  http://daniellucia.es
  * License:     GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: dl-woo-estimated-delivery
  * Domain Path: /languages
  * Requires Plugins: woocommerce
