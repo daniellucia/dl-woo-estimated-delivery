@@ -40,7 +40,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 define('DL_WOO_ESTIMATED_DELIVERY_VERSION', '0.0.2');
 define('DL_WOO_ESTIMATED_DELIVERY_FILE', __FILE__);
 
-add_action('init', function () {
+add_action('plugins_loaded', function () {
 
     load_plugin_textdomain('dl-woo-estimated-delivery', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
