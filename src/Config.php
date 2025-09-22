@@ -61,7 +61,10 @@ final class Config
      */
     public function saveData()
     {
-        if (!current_user_can('manage_options')) wp_send_json_error('No autorizado');
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('No autorizado');
+        }
+        
         $new_holidays = isset($_POST['holidays']) ? (array)$_POST['holidays'] : [];
         $saved_holidays = get_option('dl_estimated_delivery_holidays', []);
         $saved_holidays = is_array($saved_holidays) ? $saved_holidays : [];
