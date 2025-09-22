@@ -29,10 +29,10 @@ final class Days
      * Añadimos dias de preparación del producto si tiene
      * @param string $date
      * @param int $product_id
-     * @return string
+     * @return int
      * @author Daniel Lucia
      */
-    public function addPreparationDaysFromProduct(int $days, int $product_id = 0): string
+    public function addPreparationDaysFromProduct(int $days, int $product_id = 0): int
     {
 
         $preparation_days = 0;
@@ -40,7 +40,7 @@ final class Days
             $preparation_days = (int)get_post_meta($product_id, '_dl_preparation_days', true);
         }
 
-        return $days + $preparation_days;
+        return (int)$days + (int)$preparation_days;
     }
 
     /**
