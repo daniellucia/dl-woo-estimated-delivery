@@ -66,9 +66,11 @@ final class Config
                 'message' => __('Insufficient permissions', 'dl-woo-estimated-delivery')
             ]);
         }
-        
+
         if (!current_user_can('manage_options')) {
-            wp_send_json_error('No autorizado');
+            wp_send_json_error([
+                'message' => __('Insufficient permissions', 'dl-woo-estimated-delivery')
+            ]);
         }
 
         $new_holidays = isset($_POST['holidays']) ? (array)$_POST['holidays'] : [];
