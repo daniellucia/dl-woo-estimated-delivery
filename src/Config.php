@@ -78,7 +78,10 @@ final class Config
         $saved_holidays = is_array($saved_holidays) ? $saved_holidays : [];
         $merged = array_unique(array_merge($saved_holidays, $new_holidays));
         update_option('dl_estimated_delivery_holidays', $merged);
-        wp_send_json_success('Guardado');
+        
+        wp_send_json_success([
+            'message' => __('Holidays saved', 'dl-woo-estimated-delivery')
+        ]);
     }
 
     /**
